@@ -1,99 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kim Milyoner Olmak İster</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
     <nav>
-        <div class="mx-auto text-center">
-            <h1 class="card-title">Kim Milyoner Olmak İster</h1>
-        </div>
+      <div class="mx-auto text-center">
+        <h1 class="card-title">Kim Milyoner Olmak İster</h1>
+      </div>
     </nav>
     <div class="container-fluid">
-        <div class="row mt-2">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="card col mt-2 mb-2">
-                        <div class="col" style="width: 100%; background-color: rgb(0, 0, 87); color: white; border: 2px; border-color: white; border-radius: 16px;">
-                            <div class="col-md-11 mx-auto">
-                                <h2 id="soru" style="float:left"></h2>
-                            </div>
-                        </div>
-                    </div>
+      <div class="row mt-2">
+        <div class="col-md-8">
+          <div class="row">
+            <div class="card col mt-2 mb-2">
+              <div id="col-soru" class="col">
+                <div class="col-md-11 mx-auto">
+                  <h2 id="soru"></h2>
                 </div>
-                <div class="row mt-4">
-                    <div class="card col-md-6 mt-1 mb-1">
-                        <button id="a" style="font-size: 56px; width: 100%; height: 100px; background-color: rgb(0, 0, 87); color: white; border: 2px; border-color: white; border-radius: 16px;" onclick="CevapValidate('a')">A - </button>
-                    </div>
-                    <div class="card col-md-6 mt-1 mb-1">
-                        <button id="b" style="font-size: 56px; width: 100%; height: 100px;  background-color: rgb(0, 0, 87); color: white; border: 2px; border-color: white; border-radius: 16px;" onclick="CevapValidate('b')">B - </button>
-                    </div>
-                    <div class="card col-md-6 mt-1 mb-1">
-                        <button id="c"  style="font-size: 56px; width: 100%; height: 100px;  background-color: rgb(0, 0, 87); color: white; border: 2px; border-color: white; border-radius: 16px;" onclick="CevapValidate('c')">C - </button>
-                    </div>
-                    <div class="card col-md-6 mt-1 mb-1">
-                        <button id="d" style=" font-size: 56px; width: 100%; height: 100px;  background-color: rgb(0, 0, 87); color: white; border: 2px; border-color: white; border-radius: 16px;" onclick="CevapValidate('d')">D - </button>
-                    </div>
-                </div>
-                
+              </div>
             </div>
-            <div class="col-md-4 mt-2">
-                <div class="row">
-                    <div class="card">
-                        <button id="baslat" class="btn btn-primary" onclick="SoruGoster()">Başlat</button>
-                    </div>
-                    <div id="sureBackground" class="card text-center">
-                        <h2 id="sure">30</h2>
-                    </div>
-                    <div class="card">
-                        <table class="table-bordered border-white" style="background-color: rgb(0, 0, 87); color: white;">
-                            <thead>
-                              <tr>
-                                <td>#</td>
-                                <td>Puan</td>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr id="tableRow1" class="table-active" style="background-color: green;">
-                                <th scope="row">1</th>
-                                <td colspan="2">100.000 TL</td>
-                              </tr>
-                              <tr id="tableRow2" >
-                                <th scope="row">2</th>
-                                <td colspan="2">100.000 TL</td>
-                              </tr>
-                              <tr id="tableRow3" >
-                                <th scope="row">3</th>
-                                <td colspan="2">100.000 TL</td>
-                              </tr>
-                              <tr id="tableRow4" >
-                                <th scope="row">4</th>
-                                <td colspan="2">100.000 TL</td>
-                              </tr>
-                              <tr id="tableRow5" >
-                                <th scope="row">5</th>
-                                <td colspan="2">100.000 TL</td>
-                              </tr>
-                              <tr id="tableRow6" >
-                                <th scope="row">6</th>
-                                <td colspan="2">100.000 TL</td>
-                              </tr>
-                              
-                            </tbody>
-                          </table>
-
-
-                    </div>
-                </div>
+          </div>
+          <div class="row mt-4">
+            <div class="card col-md-6 mt-1 mb-1">
+              <button id="a" class="cevap-btn" onclick="CevapValidate('a')">A -</button>
             </div>
+            <div class="card col-md-6 mt-1 mb-1">
+              <button id="b" class="cevap-btn" onclick="CevapValidate('b')">B -</button>
+            </div>
+            <div class="card col-md-6 mt-1 mb-1">
+              <button id="c" class="cevap-btn" onclick="CevapValidate('c')">C -</button>
+            </div>
+            <div class="card col-md-6 mt-1 mb-1">
+              <button id="d" class="cevap-btn" onclick="CevapValidate('d')">D -</button>
+            </div>
+          </div>
         </div>
+        <div class="col-md-4 mt-2">
+          <div class="row">
+            <div class="card">
+              <button id="baslat" class="btn btn-primary" onclick="SoruGoster()">Başlat</button>
+            </div>
+            <div id="sureBackground" class="card text-center">
+              <h2 id="sure">30</h2>
+            </div>
+            <div class="card">
+              <table id="table" class="table-bordered border-white">
+                <thead>
+                  <tr>
+                    <td>#</td>
+                    <td>Puan</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    id="tableRow1"
+                    class="table-active"
+                    style="background-color: green"
+                  >
+                    <th scope="row">1</th>
+                    <td colspan="2">100.000 TL</td>
+                  </tr>
+                  <tr id="tableRow2">
+                    <th scope="row">2</th>
+                    <td colspan="2">100.000 TL</td>
+                  </tr>
+                  <tr id="tableRow3">
+                    <th scope="row">3</th>
+                    <td colspan="2">100.000 TL</td>
+                  </tr>
+                  <tr id="tableRow4">
+                    <th scope="row">4</th>
+                    <td colspan="2">100.000 TL</td>
+                  </tr>
+                  <tr id="tableRow5">
+                    <th scope="row">5</th>
+                    <td colspan="2">100.000 TL</td>
+                  </tr>
+                  <tr id="tableRow6">
+                    <th scope="row">6</th>
+                    <td colspan="2">100.000 TL</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="/js/site.js"></script>
-</body>
+  </body>
 </html>

@@ -1,7 +1,3 @@
-window.onload = function () {
-  kacinciSoru = 0;
-};
-
 var sorular = [
   {
     soruSayisi: 1,
@@ -59,6 +55,15 @@ var sorular = [
   },
 ];
 
+const tableRows =[
+  {row:document.getElementById("tableRow1")},
+  {row:document.getElementById("tableRow2")},
+  {row:document.getElementById("tableRow3")},
+  {row:document.getElementById("tableRow4")},
+  {row:document.getElementById("tableRow5")},
+  {row:document.getElementById("tableRow6")}
+]
+
 const soru = document.getElementById("soru");
 const aSıkkı = document.getElementById("a");
 const bSıkkı = document.getElementById("b");
@@ -70,26 +75,12 @@ var kacinciSoru = 0;
 var cevap = true;
 var timerActive = false;
 var countDown;
-const tableRow1 = document.getElementById("tableRow1");
-const tableRow2 = document.getElementById("tableRow2");
-const tableRow3 = document.getElementById("tableRow3");
-const tableRow4 = document.getElementById("tableRow4");
-const tableRow5 = document.getElementById("tableRow5");
-const tableRow6 = document.getElementById("tableRow6");
-
-function TableColorClear() {
-  tableRow1.style.backgroundColor = "rgb(0, 0, 87)";
-  tableRow2.style.backgroundColor = "rgb(0, 0, 87)";
-  tableRow3.style.backgroundColor = "rgb(0, 0, 87)";
-  tableRow4.style.backgroundColor = "rgb(0, 0, 87)";
-  tableRow5.style.backgroundColor = "rgb(0, 0, 87)";
-  tableRow6.style.backgroundColor = "rgb(0, 0, 87)";
-}
 
 function GetTimer() {
   let second = 30;
   let sureBackground = document.getElementById("sureBackground");
   let sure = document.getElementById("sure");
+
   countDown = setInterval(function () {
     if (!timerActive) {
       second--;
@@ -101,39 +92,22 @@ function GetTimer() {
         timerActive = true;
         kacinciSoru = 0;
         TableColorClear();
-        sureBackground.style.backgroundColor = "white";
-        sure.style.color = "black";
+        
+        ObjectBackgroundColor(sureBackground,"white");
+        backgroundColor(sure,"black");
         BaslatButton("Başlat");
       } else if (second <= 10) {
-        sureBackground.style.backgroundColor = "red";
-        sure.style.color = "white";
+        ObjectBackgroundColor(sureBackground,"red");
+        backgroundColor(sure,"white");
       } else {
-        sureBackground.style.backgroundColor = "white";
-        sure.style.color = "black";
+        ObjectBackgroundColor(sureBackground,"white");
+        backgroundColor(sure,"black");
       }
     }
   }, 1000);
 }
 
-function TableColor() {
-  if (kacinciSoru == 0) {
-    tableRow1.style.backgroundColor = "green";
-  } else if (kacinciSoru == 1) {
-    tableRow2.style.backgroundColor = "green";
-  } else if (kacinciSoru == 2) {
-    tableRow3.style.backgroundColor = "green";
-  } else if (kacinciSoru == 3) {
-    tableRow4.style.backgroundColor = "green";
-  } else if (kacinciSoru == 4) {
-    tableRow5.style.backgroundColor = "green";
-  } else if (kacinciSoru == 5) {
-    tableRow6.style.backgroundColor = "green";
-  }
-}
 
-function BaslatButton(deger) {
-  baslat.innerText = deger;
-}
 
 function SoruGoster() {
   timerActive = false;
@@ -145,10 +119,11 @@ function SoruGoster() {
   } else {
     clearInterval(countDown);
     cevap = false;
-    aSıkkı.style.backgroundColor = "rgb(0, 0, 87)";
-    bSıkkı.style.backgroundColor = "rgb(0, 0, 87)";
-    cSıkkı.style.backgroundColor = "rgb(0, 0, 87)";
-    dSıkkı.style.backgroundColor = "rgb(0, 0, 87)";
+    ObjectBackgroundColor(aSıkkı,"rgb(0, 0, 87)");
+    ObjectBackgroundColor(bSıkkı,"rgb(0, 0, 87)");
+    ObjectBackgroundColor(cSıkkı,"rgb(0, 0, 87)");
+    ObjectBackgroundColor(dSıkkı,"rgb(0, 0, 87)");
+    
 
     soru.innerText = kacinciSoru + 1 + " - " + sorular[kacinciSoru].Soru;
     aSıkkı.innerText = "A - " + sorular[kacinciSoru].a;
@@ -158,7 +133,7 @@ function SoruGoster() {
 
     cevap = false;
     TableColorClear();
-    TableColor();
+    ObjectBackgroundColor(tableRows[kacinciSoru].row,"green")
     GetTimer();
     BaslatButton("Sonraki Soru");
   }
@@ -167,14 +142,14 @@ function SoruGoster() {
 function CevapValidate(hangiSık) {
   if (!cevap) {
     if (hangiSık == sorular[kacinciSoru].dogruCevap) {
-      CevapRenk(hangiSık, "green");
+      ObjectBackgroundColor(document.getElementById(hangiSık), "green")
       kacinciSoru++;
       cevap = true;
       timerActive = true;
     } else {
       cevap = true;
-      CevapRenk(hangiSık, "orange");
-      CevapRenk(sorular[kacinciSoru].dogruCevap, "green");
+      ObjectBackgroundColor(document.getElementById(hangiSık), "orange")
+      ObjectBackgroundColor(document.getElementById(sorular[kacinciSoru].dogruCevap), "green");
       kacinciSoru = 0;
       timerActive = true;
       BaslatButton("Başlat");
@@ -182,6 +157,18 @@ function CevapValidate(hangiSık) {
   }
 }
 
-function CevapRenk(hangiSık, renk) {
-  document.getElementById(hangiSık).style.backgroundColor = renk;
+function  ObjectColor(object,color){
+object.style.backgroundColor = color;
 }
+function TableColorClear() {
+  for (let index = 0; index < tableRows.length; index++) {
+    ObjectBackgroundColor(tableRows[index].row,"rgb(0, 0, 87)")
+  }
+}
+function ObjectBackgroundColor(object,color){
+  object.style.backgroundColor = color;
+}
+function BaslatButton(deger) {
+  baslat.innerText = deger;
+}
+
