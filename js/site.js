@@ -94,14 +94,14 @@ function GetTimer() {
         TableColorClear();
         
         ObjectBackgroundColor(sureBackground,"white");
-        backgroundColor(sure,"black");
+        ObjectColor(sure,"black");
         BaslatButton("Başlat");
       } else if (second <= 10) {
         ObjectBackgroundColor(sureBackground,"red");
-        backgroundColor(sure,"white");
+        ObjectColor(sure,"white");
       } else {
         ObjectBackgroundColor(sureBackground,"white");
-        backgroundColor(sure,"black");
+        ObjectColor(sure,"black");
       }
     }
   }, 1000);
@@ -158,7 +158,7 @@ function CevapValidate(hangiSık) {
 }
 
 function  ObjectColor(object,color){
-object.style.backgroundColor = color;
+object.style.color = color;
 }
 function TableColorClear() {
   for (let index = 0; index < tableRows.length; index++) {
